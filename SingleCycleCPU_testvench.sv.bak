@@ -1,8 +1,0 @@
-module SingleCycleCPU_testbench();
-	logic clk, reset, running;
-	
-	integer i;
-	
-	SingleCycleCPU dut (.running, .clk, .reset);
-	
-	initial $timeformat(-9, 2, " ns", 10);

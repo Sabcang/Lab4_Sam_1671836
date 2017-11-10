@@ -6,13 +6,13 @@ module Multiplexor (dataOut, dataIn, sel);
 	genvar k;
 	generate
 		for (k = 63; k >= 0; k--) begin : eachMux
-			mux32_1 mux1 (sel, { dataIn[31][k], dataIn[30][k], dataIn[29][k], 
-									dataIn[28][k], dataIn[27][k], dataIn[26][k], dataIn[25][k], dataIn[24][k], 
-									dataIn[23][k], dataIn[22][k], dataIn[21][k], dataIn[20][k], dataIn[19][k], 
-									dataIn[18][k], dataIn[17][k], dataIn[16][k], dataIn[15][k], dataIn[14][k], 
-									dataIn[13][k], dataIn[12][k], dataIn[11][k], dataIn[10][k], dataIn[9][k], 
-									dataIn[8][k], dataIn[7][k], dataIn[6][k], dataIn[5][k], dataIn[4][k], 
-									dataIn[3][k], dataIn[2][k], dataIn[1][k], dataIn[0][k]}, dataOut[k]);
+			mux32_1 mux1 (sel, {dataIn[31][k], dataIn[30][k], dataIn[29][k], 
+								dataIn[28][k], dataIn[27][k], dataIn[26][k], dataIn[25][k], dataIn[24][k], 
+								dataIn[23][k], dataIn[22][k], dataIn[21][k], dataIn[20][k], dataIn[19][k], 
+								dataIn[18][k], dataIn[17][k], dataIn[16][k], dataIn[15][k], dataIn[14][k], 
+								dataIn[13][k], dataIn[12][k], dataIn[11][k], dataIn[10][k], dataIn[9][k], 
+								dataIn[8][k], dataIn[7][k], dataIn[6][k], dataIn[5][k], dataIn[4][k], 
+								dataIn[3][k], dataIn[2][k], dataIn[1][k], dataIn[0][k]}, dataOut[k]);
 		end
 	endgenerate
 endmodule

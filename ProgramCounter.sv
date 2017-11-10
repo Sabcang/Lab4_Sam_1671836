@@ -6,8 +6,9 @@ module ProgramCounter (counter, clk, UnCondBr, BrTaken, CondAddr19, BrAddr26, re
 	
 	logic [63:0] ps, ns;
 	logic [63:0] SECondAddr, SEBrAddr;
-	SE26 se26 (BrAddr26, SEBrAddr);
-	SE19 se19 (CondAddr19, SECondAddr);
+	
+	assign SEBrAddr = 64'(signed'(BrAddr26));
+	assign SECondAddr = 64'(signed'(CondAddr19));
 	
 	logic [63:0] ToShift;
 	mux2_1_64bit x64 (.in1(SEBrAddr), .in0(SECondAddr), .sel(UnCondBr), .dataOut(ToShift));

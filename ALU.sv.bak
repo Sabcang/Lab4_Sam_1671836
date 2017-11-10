@@ -1,0 +1,28 @@
+module alu (Output, A, B, ALUControl, Zero, Overflow, Carryout, Negative);
+	input logic [63:0] A, B;
+	input logic [2:0] ALUControl;
+	output logic [63:0] Output;
+	output logic Zero, Overflow, Carryout, Negative;
+	
+	logic [63:0] carryInNOut;
+	
+	assign Carryout = carryInNOut[63];
+	xor x1 (Overflow, carryInNOut[63], carryInNOut[62]);
+	assign Negative = Output[63];
+	nor nor1 (Zero, Output[63], Output[62], Output[61], Output[60], Output[59], Output[58], Output[57], Output[56], 
+						 Output[55], Output[54], Output[53], Output[52], Output[51], Output[50], Output[49], Output[48], 
+						 Output[47], Output[46], Output[45], Output[44], Output[43], Output[42], Output[41], Output[40], 
+						 Output[39], Output[38], Output[37], Output[36], Output[35], Output[34], Output[33], Output[32],
+						 Output[31], Output[30], Output[29], Output[28], Output[27], Output[26], Output[25], Output[24], 
+						 Output[23], Output[22], Output[21], Output[20], Output[19], Output[18], Output[17], Output[16], 
+						 Output[15], Output[14], Output[13], Output[12], Output[11], Output[10], Output[9], Output[8], 
+						 Output[7], Output[6], Output[5], Output[4], Output[3], Output[2], Output[1], Output[0]);
+	
+	bitALU ba0 (Output[0], carryInNOut[0], ALUControl[0], A[0], B[0], ALUControl);
+	genvar i;
+	generate 
+		for (i = 1; i < 64; i++) begin : eachBit
+			bitALU ba (Output[i], carryInNOut[i], carryInNOut[i - 1], A[i], B[i], ALUControl);
+		end
+	endgenerate
+endmodule

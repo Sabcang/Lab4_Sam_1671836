@@ -1,0 +1,12 @@
+module Multiplexor (dataOut, dataIn, sel);
+	input logic [63:0][31:0] dataIn;
+	input logic [4:0] sel;
+	output logic [63:0] dataOut;
+	
+	genvar i, k;
+	generate
+		for (k = 63; k >= 0; k--) begin : eachMux
+			mux32_1 mux1 (sel, dataIn[k], dataOut[k]);
+		end
+	endgenerate
+endmodule

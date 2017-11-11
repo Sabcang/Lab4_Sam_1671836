@@ -1,4 +1,4 @@
-module PipliningCPU (running, clk, reset);
+module PipliningCPU (running, clk, reset); // fork
 	input logic clk, reset;
 	output logic running;
 	

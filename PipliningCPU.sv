@@ -116,7 +116,7 @@ module PipliningCPU (running, clk, reset);
 	mux2_1_64bit mux2 (.in1(LByteOpMux), .in0(AluResult), .sel(MemToReg3b[1]), .dataOut(nextData));
 	
 	// Control signal registers that stores signal up to 3 cycles
-	// shifting_reg_3bit Reg2LocSR (.out(Reg2Loc3b), .in(Reg2Loc), .clk);
+	// shifting_reg_3bit Reg2LocSR (.out(Reg2Loc3b), .in(Reg2Loc), .clk); //....
 	shifting_reg_3bit ALUSrcSR1 (.out(ALUSrc3b[1]), .in(ALUSrc[1]), .clk);
 	shifting_reg_3bit ALUSrcSR0 (.out(ALUSrc3b[0]), .in(ALUSrc[0]), .clk);
 	shifting_reg_3bit MemToRegSR (.out(MemToReg3b), .in(MemToReg), .clk);

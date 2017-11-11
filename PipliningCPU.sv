@@ -116,14 +116,14 @@ module PipliningCPU (running, clk, reset);
 	mux2_1_64bit mux2 (.in1(LByteOpMux), .in0(AluResult), .sel(MemToReg3b[1]), .dataOut(nextData));
 	
 	// Control signal registers that stores signal up to 3 cycles
-	shifting_reg_3bit Reg2LocSR (.out(Reg2Loc3b), .in(Reg2Loc), .clk);
+	// shifting_reg_3bit Reg2LocSR (.out(Reg2Loc3b), .in(Reg2Loc), .clk);
 	shifting_reg_3bit ALUSrcSR1 (.out(ALUSrc3b[1]), .in(ALUSrc[1]), .clk);
 	shifting_reg_3bit ALUSrcSR0 (.out(ALUSrc3b[0]), .in(ALUSrc[0]), .clk);
 	shifting_reg_3bit MemToRegSR (.out(MemToReg3b), .in(MemToReg), .clk);
 	shifting_reg_3bit RegWriteSR (.out(RegWrite3b), .in(RegWrite), .clk);
 	shifting_reg_3bit MemWriteSR (.out(MemWrite3b), .in(MemWrite), .clk);
-	shifting_reg_3bit BrTakenSR (.out(BrTaken3b), .in(BrTaken), .clk);
-	shifting_reg_3bit UnCondBrSR (.out(UnCondBr3b), .in(UnCondBr), .clk);
+	// shifting_reg_3bit BrTakenSR (.out(BrTaken3b), .in(BrTaken), .clk);
+	// shifting_reg_3bit UnCondBrSR (.out(UnCondBr3b), .in(UnCondBr), .clk);
 	shifting_reg_3bit ALUOpSR2 (.out(ALUOp3b[2]), .in(ALUOp[2]), .clk);
 	shifting_reg_3bit ALUOpSR1 (.out(ALUOp3b[1]), .in(ALUOp[1]), .clk);
 	shifting_reg_3bit ALUOpSR0 (.out(ALUOp3b[0]), .in(ALUOp[0]), .clk);
